@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-12">
+    <div *ngIf="tasks?.length > 0; else noTasks">
+    <ul class="mywholelist">
+      <div class="mylist col-12 morepadding">
+        <p class="col-9 inlinethis">List of tasks:</p>
+
+        <!-- <button (click)="sortBy('taskName', 'desc')" class="btn btn-outline-dark col-1 inlinethis"><i class="material-icons">sort_by_alpha</i></button> -->
+      </div>
+      <div class="row">
+        <div class="col">
+        <div class="mylist inlinethis col"
+        *ngFor='let task of tasks'>
+        <p class="inlinethis col-9">{{task.taskName}}</p>
+        <div *ngIf="task.isTaskDone; else undone"
+            class="inlinethis align-items-end" title="task is done">
+            <i class="material-icons extra5">done</i>
+          </div>
+          <ng-template #undone>
+            <div
+            class="inlinethis align-items-end" title="task is undone">
+                <i class="material-icons extra5">remove_circle_outline</i>
+              </div>
+          </ng-template>
+            <button (click)="editTask($event, task)" class="btn btn-outline-dark inlinethis align-items-end" title="edit task"><i class="material-icons">edit</i></button>
+          <div *ngIf="editState && taskToEdit.id == task.id">
+              <div class="row">
+                  <div class="col">
+                      <div class="col">
+                          <form (ngSubmit)="updateTask(task)">
+                                <div class="bg-transparent">
+                                      <div class="col-12">
+                                        <input type="text" placeholder="Edit task name" class="col" [(ngModel)]="task.taskName" name="taskName">
+                                        <button (click)="updateTask(task)" class="btn btn-outline-dark" title="update task"><i class="material-icons">add</i> </button>
+                                        <button (click)="deleteTask($event, task)" class="btn btn-outline-dark" title="delete task"><i class="material-icons">delete</i></button>
+                                        <button (click)="changeStatus(task, task)" class="btn btn-outline-dark" title="Click to change status."><i class="material-icons">
+                                            <div *ngIf="task.isTaskDone; else undone" class="inlinethis align-items-end"> <i class="material-icons">done</i> </div>
+                                          <ng-template #undone><div class="inlinethis align-items-end"><i class="material-icons">remove_circle_outline</i></div></ng-template>
+                                        </i></button>
+                                        <button (click)="clearState()" class="btn btn-outline-dark" title="Click to close" ><i class="material-icons">arrow_drop_up</i></button>
+                                      </div>
+                                  </div>
+                                </form>
+                          </div>
+                    </div>
+                </div>
+          </div>
+        </div>
+    </div>
+    </div>
+    </ul>
+    </div>
+    <ng-template #noTasks >
+    <div class="mywholelist">
+    <div class=" ">
+      <p>No Tasks.<br>Add something, do something!</p>
+    </div>
+    </div>
+    </ng-template>
+    </div>
+    </div>

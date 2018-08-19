@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="mywholelist col extra10pxmargin">
+    <form (ngSubmit)="submitThis()">
+          <div class="mylist bg-secondary">
+                <div class="col-12">
+                  <input type="text" placeholder="Add new task name"
+                  class="col-10"
+                  [(ngModel)]="task.taskName" name="taskName">
+                  <i class="material-icons">
+                    <input type="submit" class="btn btn-outline-dark" value="add">
+                  </i>
+
+                </div>
+            </div>
+          </form>
+    </div>
+  </div>

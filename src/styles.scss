@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~bootstrap/scss/bootstrap-reboot';
+@import '~bootstrap/scss/bootstrap-grid';
+
+.container {
+    background-color: rgb(85, 74, 74);
+    color: rgb(255, 255, 255);
+    padding: 20px;
+}
+
+.mylist {
+    background-color: rgb(62, 90, 90);
+    border: 1px solid black;
+    margin: 2px;
+    // border-radius: 20px;
+    color: white;
+
+}
+
+.mywholelist {
+    // border: 2px solid white;
+    border-radius: 20px;
+    padding: 10px;
+    // margin: 10px;
+    color: black;
+}
+
+.inlinethis {
+    display: inline-block;
+    // display: inline;
+    list-style-type: none;
+
+}
+
+button {
+    margin: 10px;
+    color: white;
+}
+
+input {
+    margin: 5px;
+}
+
+.extra10pxmargin {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.myfooter {
+    padding: 20px;
+}
+
+.btn {
+    color: white;
+}
+
+.morepadding {
+    padding: 10px;
+}
+
